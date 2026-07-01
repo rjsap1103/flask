@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>풀스택 연습</title>
+
+</head>
+<body>
+    <h1>도서관 목록</h1>
+    <ul>
+        {% for book in books %}
+<!--        파이썬 코드를 쓸 수 있게함-->
+            <li>{{ book[1] }} - 저자: {{ book[2] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
