@@ -1,3 +1,79 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">-->
+<!--    <title>풀스택 연습</title>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>도서관 목록</h1>-->
+<!--    <ul>-->
+<!--        {% for book in books %}-->
+<!--&lt;!&ndash;        파이썬 코드를 쓸 수 있게함&ndash;&gt;-->
+<!--            <li>{{ book[1] }} - 저자: {{ book[2] }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">-->
+<!--    <title>풀스택 연습</title>-->
+
+<!--</head>-->
+<!--<body>-->
+
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>학생 이름</th>-->
+<!--        <th>점수</th>-->
+<!--    </tr>-->
+<!--    {% for s in scores %}-->
+<!--        <tr>-->
+<!--            <td>{{s[0]}}</td>-->
+<!--            <td>{{s[1]}}</td>-->
+<!--        </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">-->
+<!--    <title>풀스택 연습</title>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--    <div>-->
+<!--        <a href="/">전체</a> | <a href="/?genre=액션">액션</a> | <a href="/?genre=sf">sf</a> | <a href="/?genre=코미디">코미디</a> | <a href="/?genre=애니메이션 ">애니메이션</a>-->
+<!--    </div>-->
+<!--    <h3>현재 장르 : {{selected_genre}}</h3>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <th>제목</th><th>장르</th><th>평점</th>-->
+
+<!--        </tr>-->
+<!--        {%for m in movies%}-->
+<!--            <tr>-->
+<!--                <td>{{m[0]}}</td>-->
+<!--                <td>{{m[1]}}</td>-->
+<!--                <td>{{m[2]}}</td>-->
+<!--            </tr>-->
+<!--        {% endfor %}-->
+
+<!--    </table>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,13 +83,24 @@
 
 </head>
 <body>
-    <h1>도서관 목록</h1>
+    <h1>✔ TO-DO List ✔</h1>
+    <form action = "/add" method = "get">
+        <label>
+            <input type= "text" name="task" placeholder="할 일을 입력하세요" required>
+        </label>
+        <button type = "submit" >추가</button>
+    </form>
+    <hr>
     <ul>
-        {% for book in books %}
-<!--        파이썬 코드를 쓸 수 있게함-->
-            <li>{{ book[1] }} - 저자: {{ book[2] }}</li>
+        {%for t in todos %}
+        <li>
+            {{t[1]}}
+            <a href="/delete?id={{ t[0] }}" >삭제</a>
+        </li>
+
         {% endfor %}
     </ul>
+
+
 </body>
 </html>
-
